@@ -1,0 +1,56 @@
+﻿@model Bloggie.Web.Models.ViewModels.EditTagRequest
+@{
+}
+
+<div class="bg-secondary bg-opacity-10 py-2">
+    <div class="container">
+        <div class="row align-items-center">
+            <!-- Use row and align-items-center for vertical alignment -->
+            <div class="col-md-8">
+                <!-- Adjust the column size as needed -->
+                <h1>Edit Tag-Admin Functionality</h1>
+            </div>
+           @*  <div class="col-md-4 text-end">
+                <a asp-action="DeleteTag" asp-route-id="@Model?.Id" class="btn btn-danger">DELETE</a>
+                <a asp-action="DeleteTag" type="button" class="btn btn-secondary">Delete</a>
+                <button type="submit" method="post" class="btn btn-danger fw-bold" asp-controller="AdminTags" asp-action="DeleteTag">DELETE</button>
+            </div> *@
+        </div>
+    </div>
+</div>
+
+
+<div class="container py-5">
+    @if (Model != null)
+    {
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Id</label>
+                <input type="text" class="form-control" id="id" asp-for="Id" readonly />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" asp-for="Name" />
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Display Name</label>
+                <input type="text" class="form-control" id="displayName" asp-for="DisplayName" />
+            </div>
+
+            <div class="d-flex">
+                <button type="submit" class="btn btn-success me-3 fw-bold" asp-action="EditTag">UPDATE</button>
+                <button type="button" class="btn me-3 btn-dark fw-bold" onclick="window.location.href='@Url.Action("List", "AdminTags")';">CANCEL</button>
+                <button type="submit" class="btn btn-danger fw-bold" asp-action="DeleteTag">DELETE</button>
+
+            </div>
+        </form>
+
+    }
+    else
+    {
+        <p>Tag Not Found!</p>
+    }
+
+</div>
